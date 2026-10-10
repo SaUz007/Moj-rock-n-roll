@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="hight=device-hight, initial-scale=2.0">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<title>Moj Rock N Roll</title>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
+
+body{
+background:black;
+color:white;
+display:flex;
+flex-direction:column;
+align-items:center;
+height:100vh;
+}
+
+header{
+width:100%;
+text-align:left;
+padding:0.7rem;
+font-size: 1.5rem;
+font-weight:600;
+background-color:DarkCyan;
+height:70px;
+position:fixed;
+top:0;
+left:0;
+right:0;
+display: flex;
+align-items: center;
+}
+
+.nav{
+display:flex;
+align-items:center;
+gap:70px;
+margin-left:10px;
+}
+
+a{
+text-decoration:none;
+color:white;
+}
+
+a:hover{
+color:lightgray;
+}
+
+a.home{
+color:red;
+margin-left:10px;
+}
+
+/* SEARCH BAR */
+
+.search{
+width:250%;
+margin-top:60px;
+position:relative;
+left:50%;
+transform:translateX(-50%);
+}
+
+.search input[type=text]{
+width:100%;
+padding:10px;
+font-size:24px;
+border:none;
+border-radius:25px;
+outline:none;
+transition:all 0.3s ease;
+}
+
+/* LOGO */
+
+.logo{
+margin-top:100px;
+width: 900px;
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+
+<div class="nav">
+
+<img src="galerija/logo_strani_1.png" width="120px">
+
+<a href="index.html" class="home">HOME</a>
+
+<a href="rock/rock.html">ROCK</a>
+
+<a href="metal/metal.html">METAL</a>
+
+<a href="yugo/yugo.html">YUGO-ROCK</a>
+
+</div>
+
+</header>
+
+<img src="galerija/logo_strani_1.png" class="logo">
+
+<form onsubmit="handleSearch(event)">
+<div class="search">
+<input type="text" id="searchInput" placeholder="Search...">
+</div>
+</form>
+
+<script>
+function handleSearch(event) {
+    event.preventDefault();
+
+    let query = document
+        .getElementById("searchInput")
+        .value
+        .toLowerCase()
+        .trim();
+
+    query = query
+	.replace(/đ/g, "dj")
+    .replace(/č/g, "c")
+    .replace(/ć/g, "c")
+    .replace(/š/g, "s")
+    .replace(/ž/g, "z")
+    .replace(/[^a-z0-9]/g, "");  
+
+    const pages = {
+        "acdc": "rock/acdc/acdc.html",
+        "rollingstones": "rock/rollingStones/rollingStones.html",
+        "thebeatles": "rock/beatles/beatles.html",
+        "elvispresley": "rock/elvis/elvis.html", 
+        "jimihendrix": "rock/jimihendrix/jimihendrix.html",
+        "queen": "rock/queen/queen.html",
+        "ledzeppelin": "rock/ledZeppelin/ledZeppelin.html",
+        "pinkfloyd": "rock/pinkFloyd/pinkFloyd.html",
+        "thedoors": "rock/doors/doors.html",
+        "direstraits": "rock/direStraits/direStraits.html",
+		
+		"metallica": "metal/metallica/metallica.html",
+        "slayer": "metal/slayer/slayer.html",
+        "anthrax": "metal/anthrax/anthrax.html",
+        "megadeath": "metal/megadeath/megadeath.html", 
+        "pantera": "metal/pantera/pantera.html",
+        "blacksabbath": "metal/blackSabbath/blackSabbath.html",
+        "ironmaiden": "metal/ironMaiden/ironMaiden.html",
+        "judaspriest": "metal/judasPriest/judasPriest.html",
+        "ozzyosbourne": "metal/ozzy/ozzy.html",
+        "motorhead": "metal/motorhead/motorhead.html",
+		
+		"bijelodugme": "yugo/dugme/dugme.html",
+        "ribljacorba": "yugo/čorba/čorba.html",
+        "parnivaljak": "yugo/parniValjak/parniValjak.html",
+        "crvenajabuka": "yugo/jabuka/jabuka.html", 
+        "divljejagode": "yugo/jagode/jagode.html",
+        "prljavokazaliste": "yugo/prljavoKazalište/prljavoKazalište.html",
+        "plaviorkestar": "yugo/plaviOrkestar/plaviOrkestar.html",
+        "zabranjenopusenje": "yugo/zabranjenoPušenje/zabranjenoPušenje.html",
+        "djordjebalasevic": "yugo/đole/đole.html",
+        "bajagaiinstruktori": "yugo/bajaga/bajaga.html"
+    };
+
+    if (pages[query]) {
+        window.location.href = pages[query];
+    } else {
+        alert("Page not found");
+    }
+}
+</script>
+
+</body>
+</html>

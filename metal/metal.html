@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<title>Metal</title>
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+  }
+
+  body {
+    background:black;;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+  }
+
+  header {
+    width: 100%;
+    text-align: left;
+    padding: 1rem;
+    font-size: 1.5rem;
+    font-weight: 600;
+    background-color: DarkCyan;
+	height: 70px;
+	align-items: center;
+	margin-bottom: 5%;
+  }
+
+ 
+  a {
+    text-decoration: none;
+    color: white; 
+  }
+
+
+  a:hover {
+    color: lightgray; 
+  }
+  
+  a.metal {
+    color: red;
+  }
+  
+  .row {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  .column {
+    background-color: black;
+    width: 16%;
+    margin: 0 2%;
+    margin-bottom: 5%;
+    text-align: center;
+    color: white;
+  }
+
+  .card {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    height: 270px;             /* SAME HEIGHT FOR ALL CARDS */
+    display: flex;
+    flex-direction: column;
+  }
+
+  .card img {
+    width: auto;
+    height: 220px;             /* SAME HEIGHT FOR ALL IMAGES */
+    object-fit: cover;         /* Prevent stretching */
+  }
+
+  .container {
+    padding: 0 20px;
+  flex: 1;            /* fills vertical space */
+  display: flex;
+  flex-direction: column;              /* Fill the remaining space */
+  }
+
+  .button {
+    border: none;
+    outline: 0;
+    padding: 8px;
+    color: white;
+    background-color: DarkCyan;
+    width: 100%;
+    cursor: pointer;
+	margin-top: auto;
+    margin-bottom: 5%;
+  }
+
+  .button:hover {
+    background-color: #555;
+  }
+  
+  
+.search input[type=text] {
+			float: right;
+			padding: 10px;
+			margin-left: 200px;
+			font-size: 16px;
+			border: 2px solid DarkCyan; 
+			border-radius: 25px; 
+			outline: none; 
+			width: 100%; /* Povečajte širino iskalnika */
+			max-width: 500px; /* Največja širina, da ne zasede preveč prostora */
+			transition: all 0.3s ease; 
+			}
+	
+.search {
+  flex: 1;  /* Iskalni vnosnik bo zavzel preostali prostor */
+  display: flex;
+  justify-content: flex-end;  /* Poravnava iskalnika na desno stran */
+}
+
+
+
+	
+.nav{
+display:flex;
+align-items:center;
+gap:70px;
+margin-left:10px;
+justify-content: space-between;
+}
+</style>
+</head>
+<body>
+<header>
+
+<div class="nav">
+
+<img src="../galerija/logo_strani_1.png" width="120px">
+
+<a href="../demo.html">HOME</a>
+
+<a href="../rock/rock.html">ROCK</a>
+
+<a href="metal.html" class="metal">METAL</a>
+
+<a href="../yugo/yugo.html">YUGO-ROCK</a>
+
+<form onsubmit="handleSearch(event)">
+		<div class="search"><input type="text" id="searchInput" placeholder="Search..." /></div></td>
+</form>
+</div>
+
+</header>
+<!-- FIRST ROW -->
+<div class="row">
+  <div class="column">
+    <div class="card">
+      <a href="metallica/metallica.html"><img src="../galerija/metal/metallica/metallica_logo.jpg"></a>
+      <div class="container">
+        <a href="metallica/metallica.html"class="button">POSLUŠAJ</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="column">
+    <div class="card">
+      <a href="blackSabbath/blackSabbath.html"><img src="../galerija/metal/black_sabbath/black_sabbath_logo.jpg"></a>
+      <div class="container">
+        <a href="blackSabbath/blackSabbath.html"class="button">POSLUŠAJ</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="column">
+    <div class="card">
+      <a href="ironMaiden/ironMaiden.html"><img src="../galerija/metal/iron_maiden/iron_maiden_logo.jpg"></a>
+      <div class="container">
+        <a href="ironMaiden/ironMaiden.html"class="button">POSLUŠAJ</a>
+      </div>
+    </div>
+  </div>
+  
+  <div class="column">
+    <div class="card">
+      <a href="slayer/slayer.html"><img src="../galerija/metal/slayer/slayer_logo.jpg"></a>
+      <div class="container">
+        <a href="slayer/slayer.html"class="button">POSLUŠAJ</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="column">
+    <div class="card">
+      <a href="megadeath/megadeath.html"><img src="../galerija/metal/megadeath/megadeath_logo.jpg"></a>
+      <div class="container">
+        <a href="megadeath/megadeath.html"class="button">POSLUŠAJ</a>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- SECOND ROW -->
+<div class="row">
+
+  <div class="column">
+    <div class="card">
+      <a href="anthrax/anthrax.html"><img src="../galerija/metal/anthrax/anthrax_logo.jpg"></a>
+      <div class="container">
+        <a href="anthrax/anthrax.html"class="button">POSLUŠAJ</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="column">
+    <div class="card">
+      <a href="judasPriest/judasPriest.html"><img src="../galerija/metal/judas_priest/judas_priest_logo.jpg"></a>
+      <div class="container">
+        <a href="judasPriest/judasPriest.html"class="button">POSLUŠAJ</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="column">
+    <div class="card">
+      <a href="ozzy/ozzy.html"><img src="../galerija/metal/ozzy/ozzy_logo.jpg"></a>
+      <div class="container">
+        <a href="ozzy/ozzy.html"class="button">POSLUŠAJ</a>
+      </div>
+    </div>
+  </div>
+  
+  <div class="column">
+    <div class="card">
+      <a href="pantera/pantera.html"><img src="../galerija/metal/pantera/pantera_logo.jpg"></a>
+      <div class="container">
+        <a href="pantera/pantera.html"class="button">POSLUŠAJ</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="column">
+    <div class="card">
+      <a href="motorhead/motorhead.html"><img src="../galerija/metal/motorhead/motorhead_logo.jpg"></a>
+      <div class="container">
+        <a href="motorhead/motorhead.html"class="button">POSLUŠAJ</a>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+
+<script>
+function handleSearch(event) {
+    event.preventDefault();
+
+    let query = document
+        .getElementById("searchInput")
+        .value
+        .toLowerCase()
+        .trim();
+
+    query = query
+	.replace(/đ/g, "dj")
+    .replace(/č/g, "c")
+    .replace(/ć/g, "c")
+    .replace(/š/g, "s")
+    .replace(/ž/g, "z")
+    .replace(/[^a-z0-9]/g, ""); 	
+
+    const pages = {
+            "acdc": "../rock/acdc/acdc.html",
+    "rollingstones": "../rock/rollingStones/rollingStones.html",
+    "thebeatles": "../rock/beatles/beatles.html",
+    "elvispresley": "../rock/elvis/elvis.html",
+    "jimihendrix": "../rock/jimihendrix/jimihendrix.html",
+    "queen": "../rock/queen/queen.html",
+    "ledzeppelin": "../rock/ledZeppelin/ledZeppelin.html",
+    "pinkfloyd": "../rock/pinkFloyd/pinkFloyd.html",
+    "thedoors": "../rock/doors/doors.html",
+    "direstraits": "../rock/direStraits/direStraits.html",
+	
+    "metallica": "../metal/metallica/metallica.html",
+    "slayer": "../metal/slayer/slayer.html",
+    "anthrax": "../metal/anthrax/anthrax.html",
+    "megadeath": "../metal/megadeath/megadeath.html",
+    "pantera": "../metal/pantera/pantera.html",
+    "blacksabbath": "../metal/blackSabbath/blackSabbath.html",
+    "ironmaiden": "../metal/ironMaiden/ironMaiden.html",
+    "judaspriest": "../metal/judasPriest/judasPriest.html",
+    "ozzyosbourne": "../metal/ozzy/ozzy.html",
+    "motorhead": "../metal/motorhead/motorhead.html",
+	
+    "bijelodugme": "../yugo/dugme/dugme.html",
+    "ribljacorba": "../yugo/čorba/čorba.html",
+    "parnivaljak": "../yugo/parniValjak/parniValjak.html",
+    "crvenajabuka": "../yugo/jabuka/jabuka.html",
+    "divljejagode": "../yugo/jagode/jagode.html",
+    "prljavokazaliste": "../yugo/prljavoKazalište/prljavoKazalište.html",
+    "plaviorkestar": "../yugo/plaviOrkestar/plaviOrkestar.html",
+    "zabranjenopusenje": "../yugo/zabranjenoPušenje/zabranjenoPušenje.html",
+    "djordjebalasevic": "../yugo/đole/đole.html",
+    "bajagaiinstruktori": "../yugo/bajaga/bajaga.html"
+    };
+
+    if (pages[query]) {
+        window.location.href = pages[query];
+    } else {
+        alert("Page not found");
+    }
+}
+</script>
+
+</body>
+</html>

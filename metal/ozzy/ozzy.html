@@ -1,0 +1,1096 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">		
+		<title>Ozzy Osbourne</title>
+		<style>
+		  * {
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
+			font-family: 'Poppins', sans-serif;
+		  }
+
+		  body {
+			
+			background-color: black;
+			color: white;
+			display: flex;
+			flex-direction: column;
+			height: 100%;
+			padding-top: 80px;
+			align-items: center;
+		  }
+
+		  header {
+			width: 100%;
+			text-align: left;
+			padding: 0.7rem;
+			font-size: 1.5rem;
+			font-weight: 600;
+			background-color: DarkCyan;
+			height: 70px; /* Set header height */
+			position: fixed; /* Fix the header at the top */
+			top: 0;
+			left: 0;
+			right: 0;
+			
+		  }
+
+		 
+		  a {
+			text-decoration: none;
+			color: white; 
+		  }
+
+
+		  a:hover {
+			color: lightgray; 
+		  }
+		  
+		  a.metal {
+			color: red;
+			margin-left: 10px;
+		  }
+		  
+		  .search input[type=text] {
+			float: right;
+			padding: 10px;
+			margin-left: 220px;
+			font-size: 16px;
+			border: 2px solid DarkCyan; 
+			border-radius: 25px; 
+			outline: none; 
+			transition: all 0.3s ease; 
+			}	
+			
+
+			
+			
+		. song{
+		margin-left: 30%;
+		
+		
+		}
+		
+		.song td{
+			padding: 10px;
+		}
+		
+		.song img{
+		border-radius: 10px;
+		border: 2px solid gray;
+		vertical-align:middle;
+		}
+		
+		.hidden {
+            display: none;
+        }
+		
+		.show-more, .show-less {
+            display: block;
+            background-color: DarkCyan;
+            color: white;
+            padding: 10px;
+            border: none;
+            cursor: pointer;
+            margin-top: 20px;
+            font-size: 16px;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+		
+		.show-more:hover .show-less:hover{
+            background-color: #444;
+        }
+		
+	.about-band {
+    max-width: 900px;
+    background-color: rgba(0, 0, 0, 0.4);
+    border-left: 5px solid DarkCyan;
+    padding: 20px 25px;
+    border-radius: 10px;
+    margin-top: 40px;
+    line-height: 1.7;
+	position: fixed;
+}
+
+.about-band h2 {
+    color: DarkCyan;
+    margin-bottom: 15px;
+    font-size: 24px;
+}
+
+.about-band p {
+    font-size: 16px;
+    color: #ddd;
+    margin-bottom: 12px;
+}
+
+/* Toggle button */
+.show-members {
+    background-color: DarkCyan;
+    color: white;
+    padding: 10px 18px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 20px;
+    transition: background-color 0.3s;
+}
+
+.show-members:hover {
+    background-color: #444;
+}
+
+.show-members i {
+    margin-left: 8px;
+    transition: transform 0.4s ease;
+}
+
+/* Container animation (Option 1) */
+
+
+/* Staggered list animation (Option 2) */
+.band-members li {
+    list-style: none;
+    font-size: 16px;
+    padding: 8px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    opacity: 0;
+    transform: translateX(-15px);
+    animation: fadeInLeft 0.4s ease forwards;
+}
+
+.band-members li:last-child {
+    border-bottom: none;
+}
+
+/* Stagger delay */
+.band-members li:nth-child(1) { animation-delay: 0.1s; }
+.band-members li:nth-child(2) { animation-delay: 0.2s; }
+.band-members li:nth-child(3) { animation-delay: 0.3s; }
+.band-members li:nth-child(4) { animation-delay: 0.4s; }
+.band-members li:nth-child(5) { animation-delay: 0.5s; }
+
+@keyframes fadeInLeft {
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Rotate arrow */
+.show-members.active i {
+    transform: rotate(180deg);
+}
+.about-table img {
+    height: 350px;
+    width: auto;
+    object-fit: cover;
+    display: block;
+	padding: 20px 25px;
+}
+/* ============================= */
+/* 1. Layout foundation */
+/* ============================= */
+
+.song,
+.about-table {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.about-table td {
+    vertical-align: top;
+}
+
+/* ============================= */
+/* 2. Section titles */
+/* ============================= */
+
+.section-title {
+    font-size: 28px;
+    margin: 20px 0;
+    border-left: 6px solid DarkCyan;
+    padding-left: 15px;
+}
+
+/* ============================= */
+/* 3. Song cards */
+/* ============================= */
+
+.song table {
+    background: rgba(0,0,0,0.4);
+    border-radius: 12px;
+    padding: 10px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.song table:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+}
+
+audio {
+    margin-top: 8px;
+    width: 420px;
+}
+
+/* ============================= */
+/* 4. Images */
+/* ============================= */
+
+.song img {
+    transition: transform 0.3s ease;
+}
+
+.song img:hover {
+    transform: scale(1.05);
+}
+
+.about-table img {
+    height: 350px;
+    width: auto;
+    object-fit: cover;
+    display: block;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.6);
+    padding: 20px 25px;
+}
+/* ============================= */
+/* 6. Buttons */
+/* ============================= */
+
+button {
+    font-family: inherit;
+}
+
+.show-more,
+.show-less{
+    box-shadow: 0 5px 15px rgba(0,0,0,0.4);
+}
+
+.show-more:active,
+.show-less:active{
+    transform: scale(0.97);
+}
+
+/* ============================= */
+/* 7. Responsive */
+/* ============================= */
+
+@media (max-width: 900px) {
+    .song {
+        margin-left: 0;
+    }
+
+    .about-table tr {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .about-table img {
+        margin: 0 auto;
+    }
+
+    audio {
+        width: 100%;
+    }
+}
+
+/* ============================= */
+/* 8. Polish */
+/* ============================= */
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    animation: fadeIn 0.6s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* ============================= */
+/* Now Playing Bar */
+/* ============================= */
+
+.now-playing {
+	display: none;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 30%;
+    background: rgba(20,20,20,0.95);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+    gap: 15px;
+    z-index: 1000;
+}
+
+.now-playing img {
+    width: 60px;
+    height: 60px;
+    border-radius: 5px;
+    object-fit: cover;
+}
+
+.now-info {
+    flex-grow: 1;
+    margin-left: 15px;
+}
+
+.now-controls {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.now-controls button {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.now-controls button:hover {
+    color: DarkCyan;
+}
+
+.now-controls audio {
+    display: none; /* hide default audio controls */
+}
+
+/* ============================= */
+/* Album Glow Animation */
+/* ============================= */
+
+.playing {
+    box-shadow: 0 0 20px DarkCyan, 0 0 40px rgba(0,255,255,0.6);
+    animation: pulseGlow 1.2s infinite alternate;
+}
+
+@keyframes pulseGlow {
+    from {
+        box-shadow: 0 0 15px DarkCyan;
+    }
+    to {
+        box-shadow: 0 0 35px DarkCyan;
+    }
+}
+
+
+
+
+
+.band-members, .about-band {
+position: relative;
+    background-color: rgba(0, 0, 0, 0.4);
+    border-radius: 10px;
+    padding: 20px;
+    box-sizing: border-box;
+    color: white;  /* assuming dark background */
+    height: 100%;
+}
+
+
+
+/* Add blue left border as a pseudo element */
+.band-members::before, .about-band::before {
+    content: "";
+  
+    top: 0;
+    left: 0;
+    width: 5px;
+    height: 100%;
+    background-color: DarkCyan;
+    border-radius: 10px 0 0 10px;
+}
+
+
+/* Slideshow container */
+.slideshow-container {
+  max-width: 1000px;
+  position: relative;
+  margin: auto;
+}
+
+/* Next & previous buttons */
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  padding: 16px;
+  margin-top: -22px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+}
+
+/* Position the "next button" to the right */
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover, .next:hover {
+  background-color: rgba(0,0,0,0.8);
+}
+
+
+
+/* Number text (1/3 etc) */
+.numbertext {
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+
+/* The dots/bullets/indicators */
+.dot {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.active, .dot:hover {
+  background-color: #717171;
+}
+
+/* Fading animation */
+fade {
+  animation: fadeEffect 0.8s;
+}
+
+@keyframes fadeEffect {
+  from { opacity: 0.4; }
+  to { opacity: 1; }
+}
+
+/* On smaller screens, decrease text size */
+@media only screen and (max-width: 300px) {
+  .prev, .next,.text {font-size: 11px}
+}
+
+.gallery-wrapper {
+  max-width: 650px;
+  margin: 40px auto;
+ padding: 0 10px;
+ display:block;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+.mySlides img {
+  width: auto;
+  height: 400px;
+  border-radius: 10px;
+}
+
+.gallery-title {
+  text-align: center;
+  font-size: 32px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  color: DarkCyan;
+  margin-bottom: 10px;
+}
+
+.gallery-title::after {
+  content: "";
+  display: block;
+  width: 60px;
+  height: 3px;
+  background: DarkCyan;
+  margin: 10px auto 0;
+  border-radius: 3px;
+}
+/* Lightbox overlay */
+.lightbox {
+  display: none;
+  position: fixed;
+  z-index: 9999;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.9);
+  align-items: center;
+  justify-content: center;
+  cursor: zoom-out;
+}
+
+/* Image */
+.lightbox img {
+  max-width: 90%;
+  max-height: 90%;
+  border-radius: 10px;
+  animation: zoomIn 0.3s ease;
+}
+
+/* Close button */
+.lightbox-close {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  font-size: 40px;
+  color: #fff;
+  cursor: pointer;
+}
+
+/* Animation */
+@keyframes zoomIn {
+  from {
+    transform: scale(0.85);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.lightbox-prev,
+.lightbox-next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 50px;
+  color: white;
+  cursor: pointer;
+  padding: 15px;
+  user-select: none;
+  transition: opacity 0.3s;
+}
+
+.lightbox-prev { left: 30px; }
+.lightbox-next { right: 30px; }
+
+.lightbox-prev:hover,
+.lightbox-next:hover {
+  opacity: 0.7;
+}
+
+.nav{
+display:flex;
+align-items:center;
+gap:70px;
+margin-left:10px;
+}
+
+		</style>
+	</head>
+	
+	<body>
+
+		<header>
+
+<div class="nav">
+
+<img src="../../galerija/logo_strani_1.png" width="120px">
+
+<a href="../../index.html">HOME</a>
+
+<a href="../../rock/rock.html">ROCK</a>
+
+<a href="../../metal/metal.html"class="metal">METAL</a>
+
+<a href="../../yugo/yugo.html">YUGO-ROCK</a>
+
+<form onsubmit="handleSearch(event)">
+		<div class="search"><input type="text" id="searchInput" placeholder="Search..." /></div></td>
+</form>
+</div>
+
+</header>
+		
+	
+		<img src="../../galerija/metal/ozzy/ozzy_banner.jpg" height="200px">
+		
+		<div style="height: 40px;"></div> 
+		<div style="height: 40px;"></div> 
+		
+		<table class="song">
+			<tr>
+				<td><table><tr><td><img src="ozz.jpg" height="100px" width="100px">
+					</td><td><div>CRAZY TRAIN (1980)</div><div><audio controls><source src="audio/train.mp3" type="audio/mpeg"></audio></div></td></tr></table></td>
+				<td><table><tr><td><img src="tears.jpg" height="100px" width="100px">
+					</td><td><div>NO MORE TEARS (1991)</div><div><audio controls><source src="audio/tears.mp3" type="audio/mpeg"></audio></div></td></tr></table></td></tr>
+			<tr>
+				<td><table><tr><td><img src="tears.jpg" height="100px" width="100px">
+					</td><td><div>MAMA, I'M COMMING HOME (1991)</div><div><audio controls><source src="audio/mama.mp3" type="audio/mpeg"></audio></div></td></tr></table></td>
+				<td><table><tr><td><img src="patient.jpg" height="100px" width="100px">
+					</td><td><div>PATIENT NUMBER 9 (2022)</div><div><audio controls><source src="audio/patient.mp3" type="audio/mpeg"></audio></div></td></tr></table></td></tr>
+			<tr class="hidden">
+				<td><table><tr><td><img src="moon.jpg" height="100px" width="100px">
+					</td><td><div>BARK AT THE MOON (1983)</div><div><audio controls><source src="audio/moon.mp3" type="audio/mpeg"></audio></div></td></tr></table></td>
+				<td><table><tr><td><img src="sin.jpg" height="100px" width="100px">
+					</td><td><div>SHOT IN THE DARK (1986)</div><div><audio controls><source src="audio/dark.mp3" type="audio/mpeg"></audio></div></td></tr></table></td></tr>
+			<tr class="hidden">	
+				<td><table><tr><td><img src="ozz.jpg" height="100px" width="100px">
+					</td><td><div>MR CROWLEY (1980)</div><div><audio controls><source src="audio/crowley.mp3" type="audio/mpeg"></audio></div></td></tr></table></td>
+				<td><table><tr><td><img src="rain.jpg" height="100px" width="100px">
+					</td><td><div>I DON'T WANNA STOP (2007)</div><div><audio controls><source src="audio/stop.mp3" type="audio/mpeg"></audio></div></td></tr></table></td></tr>
+			<tr class="hidden">
+				<td><table><tr><td><img src="tears.jpg" height="100px" width="100px">
+					</td><td><div>HELLRAISER (1991)</div><div><audio controls><source src="audio/hellraiser.mp3" type="audio/mpeg"></audio></div></td></tr></table></td>
+				<td><table><tr><td><img src="earth.jpg" height="100px" width="100px">
+					</td><td><div>DREAMER (2001)</div><div><audio controls><source src="audio/dreamer.mp3" type="audio/mpeg"></audio></div></td></tr></table></td></tr>
+		</table>
+
+			<button class="show-more" onclick="showMore()">Show More</button>
+			<button class="show-less" onclick="showLess()" style="display: none;">Show Less</button>
+			
+			
+			<div class="now-playing" id="nowPlaying" style="display: none;">
+    <img id="nowCover" src="" alt="Album cover">
+    <div class="now-info">
+        <div id="nowTitle">Nothing playing</div>
+        <div id="nowArtist">AC/DC</div>
+    </div>
+    <div class="now-controls">
+        <button id="playPauseBtn"><i class="fa fa-play"></i></button>
+        <button id="stopBtn"><i class="fa fa-stop"></i></button>
+    </div>
+</div>
+
+
+		<div style="height: 40px;"></div> 
+		<div style="height: 40px;"></div> 	
+		
+		
+	<table class="about-table" style="width:100%; border-collapse: collapse; table-layout: fixed;">
+    <!-- Row 1: Images -->
+    <tr>
+        <td style="width:50%; text-align:center; padding: 0 10px;">
+            <img src="../../galerija/metal/ozzy/ozzy_11.jpg" style="display:block; margin: 0 auto; height:300px;">
+			<p></p>
+        </td>
+        <td style="width:50%; text-align:center; padding: 0 10px;">
+            <img src="../../galerija/metal/ozzy/ozzy_20.jpg"style="display:block; margin: 0 auto; height:300px;">
+        </td>
+    </tr>
+</table>
+
+    <!-- About Section -->
+    <table>
+		<tr>
+		<td><div class="about-band" style="vertical-align: top; padding: 0 10px; margin-bottom:70px;">
+            <h2 style="margin:0 0 10px 0; padding:0;">About Ozzy Osbourne</h2>
+            <p style="margin:0 0 10px 0; line-height:1.5;">
+             Ozzy Osbourne is one of the most famous figures in heavy metal. 
+			 He first became known as the lead singer of Black Sabbath,
+			 a band that helped create the heavy metal genre in the early 1970s. 
+			 After leaving the group in 1979, Ozzy began a hugely successful solo career 
+			 and released classic albums like Blizzard of Ozz and Diary of a Madman.
+            </p>
+            <p style="margin:0 0 10px 0; line-height:1.5;">
+               Throughout his solo career, Ozzy worked with many legendary guitarists.
+			   One of the most influential was Randy Rhoads, whose playing on songs like Crazy Train 
+			   helped define Ozzy’s early solo sound. After Rhoads’ death in 1982,
+			   Ozzy collaborated with guitarists such as Jake E. Lee, Zakk Wylde, and Robert Trujillo. 
+			   Each guitarist brought a different style, helping keep Ozzy’s music fresh over the decades.
+            </p>
+            <p style="margin:0; line-height:1.5;">
+                Because of his influence on the genre, Ozzy Osbourne is often called the “Prince of Darkness”.
+				He passed in august of 2025, shortly after performing his farwell show in Birmingham at 
+				Back to Beginning festival.
+				<br></br>
+				<h2 style="color: DarkCyan;  padding:0;">Links:</h2>
+
+<a href="https://www.instagram.com/ozzyosbourne/" target="_blank" style="font-size:30px; color:#E1306C; margin-right:50px;">
+<i class="fa-brands fa-instagram"></i>
+</a>
+
+<a href="https://www.youtube.com/channel/UCe3JCin4Gnv9azlWnAs5keg" target="_blank" style="font-size:30px; color:red; margin-right:50px;">
+<i class="fa-brands fa-youtube"></i>
+</a>
+<a href="https://open.spotify.com/artist/6ZLTlhejhndI4Rh53vYhrY" target="_blank" style="font-size:30px; color:green; margin-right:50px;">
+<i class="fa-brands fa-spotify"></i>
+
+<a href="https://www.ozzy.com/" target="_blank" style="font-size:30px; color:LightBlue;">
+<i class="fa-solid fa-globe"></i>
+</a>
+            </p>
+        </div></td>
+		<td><img src="../../galerija/metal/ozzy/ozzy_4.jpg" height="350"></td></tr>
+</table>
+
+
+
+<h2 class="gallery-title">Photo gallery</h2>
+
+<div class="gallery-wrapper">
+<div class="slideshow-container">
+<div class="mySlides fade">
+  <div class="numbertext">1 / 15</div>
+  <img src="../../galerija/metal/ozzy/ozzy_1.jpg" onclick="openLightbox(this)">
+</div>
+
+<div class="mySlides fade">
+  <div class="numbertext">2 / 15</div>
+  <img src="../../galerija/metal/ozzy/ozzy_2.jpg" onclick="openLightbox(this)">
+</div>
+
+<div class="mySlides fade">
+  <div class="numbertext">3 / 15</div>
+  <img src="../../galerija/metal/ozzy/ozzy_3.jpg" onclick="openLightbox(this)"> 
+</div>
+
+<div class="mySlides fade">
+  <div class="numbertext"> 4/ 15</div>
+  <img src="../../galerija/metal/ozzy/ozzy_5.jpg" onclick="openLightbox(this)">  
+</div>
+
+<div class="mySlides fade">
+  <div class="numbertext">5 / 15</div>
+  <img src="../../galerija/metal/ozzy/ozzy_6.jpg" onclick="openLightbox(this)">  
+</div>
+
+<div class="mySlides fade">
+  <div class="numbertext">6 / 15</div>
+  <img src="../../galerija/metal/ozzy/ozzy_7.jpg" onclick="openLightbox(this)">  
+</div>
+
+
+<div class="mySlides fade">
+  <div class="numbertext">7 / 15</div>
+  <img src="../../galerija/metal/ozzy/ozzy_8.jpg" onclick="openLightbox(this)">
+</div>
+
+<div class="mySlides fade">
+  <div class="numbertext">8 / 15</div>
+  <img src="../../galerija/metal/ozzy/ozzy_9.jpg" onclick="openLightbox(this)"> 
+</div>
+
+<div class="mySlides fade">
+  <div class="numbertext">9 / 15</div>
+  <img src="../../galerija/metal/ozzy/ozzy_10.jpg" onclick="openLightbox(this)">
+</div>
+
+<div class="mySlides fade">
+  <div class="numbertext">10 / 15</div>
+  <img src="../../galerija/metal/ozzy/ozzy_12.jpg" onclick="openLightbox(this)">
+</div>
+
+
+<div class="mySlides fade">
+  <div class="numbertext">11 / 15</div>
+  <img src="../../galerija/metal/ozzy/ozzy_13.jpg" onclick="openLightbox(this)">  
+</div>
+
+
+<div class="mySlides fade">
+  <div class="numbertext">12 / 15</div>
+  <img src="../../galerija/metal/ozzy/ozzy_14.jpg" onclick="openLightbox(this)">
+</div>
+
+<div class="mySlides fade">
+  <div class="numbertext">13 / 15</div>
+  <img src="../../galerija/metal/ozzy/ozzy_15.jpg" onclick="openLightbox(this)"> 
+</div>
+
+<div class="mySlides fade">
+  <div class="numbertext">14 / 15</div>
+  <img src="../../galerija/metal/ozzy/ozzy_18.jpg" onclick="openLightbox(this)">
+</div>
+
+<div class="mySlides fade">
+  <div class="numbertext">15 / 15</div>
+  <img src="../../galerija/metal/ozzy/ozzy_19.jpg" onclick="openLightbox(this)">
+</div>
+
+<a class="prev" onclick="plusSlides(-1)">❮</a>
+<a class="next" onclick="plusSlides(1)">❯</a>
+
+</div>
+</div>
+<br>
+
+<div style="text-align:center">
+  <span class="dot" onclick="currentSlide(1)"></span> 
+  <span class="dot" onclick="currentSlide(2)"></span> 
+  <span class="dot" onclick="currentSlide(3)"></span> 
+  <span class="dot" onclick="currentSlide(4)"></span> 
+  <span class="dot" onclick="currentSlide(5)"></span> 
+  <span class="dot" onclick="currentSlide(6)"></span> 
+  <span class="dot" onclick="currentSlide(7)"></span> 
+  <span class="dot" onclick="currentSlide(8)"></span> 
+  <span class="dot" onclick="currentSlide(9)"></span> 
+  <span class="dot" onclick="currentSlide(10)"></span> 
+  <span class="dot" onclick="currentSlide(11)"></span> 
+  <span class="dot" onclick="currentSlide(12)"></span> 
+  <span class="dot" onclick="currentSlide(13)"></span> 
+  <span class="dot" onclick="currentSlide(14)"></span> 
+  <span class="dot" onclick="currentSlide(15)"></span> 
+</div>
+
+<div id="lightbox" class="lightbox">
+  <span class="lightbox-close" onclick="closeLightbox()">&times;</span>
+
+  <a class="lightbox-prev" onclick="changeLightbox(-1)">❮</a>
+  <img id="lightbox-img" src="">
+  <a class="lightbox-next" onclick="changeLightbox(1)">❯</a>
+</div>
+			
+</body>
+	
+	
+<script>
+
+/* ============================= */
+/* Show More / Show Less Songs */
+/* ============================= */
+
+function showMore() {
+    const rows = document.querySelectorAll('.song tr');
+
+    rows.forEach(row => row.classList.remove('hidden'));
+
+    document.querySelector('.show-more').style.display = 'none';
+    document.querySelector('.show-less').style.display = 'block';
+}
+
+function showLess() {
+    const rows = document.querySelectorAll('.song tr');
+
+    rows.forEach((row, index) => {
+        if (index > 5) { // keep first TWO rows (4 songs)
+            row.classList.add('hidden');
+        } else {
+            row.classList.remove('hidden');
+        }
+    });
+
+    document.querySelector('.show-more').style.display = 'block';
+    document.querySelector('.show-less').style.display = 'none';
+}
+
+
+
+/* ============================= */
+/* Audio + Now Playing Bar */
+/* ============================= */
+
+const nowBar = document.getElementById("nowPlaying");
+const nowTitle = document.getElementById("nowTitle");
+const nowCover = document.getElementById("nowCover");
+const playPauseBtn = document.getElementById("playPauseBtn");
+
+const audios = document.querySelectorAll("audio");
+let currentAudio = null;
+let barShown = false;
+
+audios.forEach(audio => {
+
+    audio.addEventListener("play", () => {
+
+        // Stop & reset others
+        audios.forEach(a => {
+            if (a !== audio) {
+                a.pause();
+                a.currentTime = 0;
+            }
+        });
+
+        // Album glow reset
+        document.querySelectorAll(".song img").forEach(img =>
+            img.classList.remove("playing")
+        );
+
+        const albumImg = audio.closest("table").querySelector("img");
+        albumImg.classList.add("playing");
+
+        nowCover.src = albumImg.src;
+        nowTitle.textContent = audio.closest("td").querySelector("div").innerText;
+
+        currentAudio = audio;
+
+        if (!barShown) {
+            nowBar.style.display = "flex";
+            barShown = true;
+        }
+
+        playPauseBtn.innerHTML = '<i class="fa fa-pause"></i>';
+    });
+
+    audio.addEventListener("pause", () => {
+        if (audio === currentAudio) {
+            playPauseBtn.innerHTML = '<i class="fa fa-play"></i>';
+            audio.closest("table").querySelector("img")
+                 .classList.remove("playing");
+        }
+    });
+
+    audio.addEventListener("ended", () => {
+        if (audio === currentAudio) {
+            currentAudio = null;
+            playPauseBtn.innerHTML = '<i class="fa fa-play"></i>';
+        }
+    });
+});
+
+/* ============================= */
+/* Sticky Bar Controls */
+/* ============================= */
+
+playPauseBtn.addEventListener("click", () => {
+    if (!currentAudio) return;
+
+    if (currentAudio.paused) currentAudio.play();
+    else currentAudio.pause();
+});
+
+/* ============================= */
+/* gallery Controls */
+/* ============================= */
+
+let slideIndex = 1;
+showSlides(slideIndex);
+
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+}
+
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
+
+function showSlides(n) {
+  let i;
+  let slides = document.getElementsByClassName("mySlides");
+  let dots = document.getElementsByClassName("dot");
+  if (n > slides.length) {slideIndex = 1}    
+  if (n < 1) {slideIndex = slides.length}
+  for (i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";  
+  }
+  for (i = 0; i < dots.length; i++) {
+    dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex-1].style.display = "block";  
+  dots[slideIndex-1].className += " active";
+}
+
+
+let lightboxIndex = 0;
+let galleryImages = [];
+
+document.addEventListener("DOMContentLoaded", () => {
+  galleryImages = Array.from(document.querySelectorAll(".mySlides img"));
+});
+
+function openLightbox(img) {
+  lightboxIndex = galleryImages.indexOf(img);
+
+  document.getElementById("lightbox-img").src = img.src;
+  document.getElementById("lightbox").style.display = "flex";
+  document.body.style.overflow = "hidden";
+}
+
+function closeLightbox() {
+  document.getElementById("lightbox").style.display = "none";
+  document.body.style.overflow = "auto";
+}
+
+function changeLightbox(direction) {
+  lightboxIndex += direction;
+
+  if (lightboxIndex < 0) {
+    lightboxIndex = galleryImages.length - 1;
+  }
+  if (lightboxIndex >= galleryImages.length) {
+    lightboxIndex = 0;
+  }
+
+  document.getElementById("lightbox-img").src =
+    galleryImages[lightboxIndex].src;
+}
+
+function handleSearch(event) {
+    event.preventDefault();
+
+    let query = document
+        .getElementById("searchInput")
+        .value
+        .toLowerCase()
+        .trim();
+
+    query = query
+	.replace(/đ/g, "dj")
+    .replace(/č/g, "c")
+    .replace(/ć/g, "c")
+    .replace(/š/g, "s")
+    .replace(/ž/g, "z")
+    .replace(/[^a-z0-9]/g, "");  
+
+    const pages = {
+        "acdc": "../../rock/acdc/acdc.html",
+        "rollingstones": "../../rock/rollingStones/rollingStones.html",
+        "thebeatles": "../../rock/beatles/beatles.html",
+        "elvispresley": "../../rock/elvis/elvis.html",
+        "jimihendrix": "../../rock/jimihendrix/jimihendrix.html",
+        "queen": "../../rock/queen/queen.html",
+        "ledzeppelin": "../../rock/ledZeppelin/ledZeppelin.html",
+        "pinkfloyd": "../../rock/pinkFloyd/pinkFloyd.html",
+        "thedoors": "../../rock/doors/doors.html",
+        "direstraits": "../../rock/direStraits/direStraits.html",
+	
+        "metallica": "../../metal/metallica/metallica.html",
+        "slayer": "../../metal/slayer/slayer.html",
+        "anthrax": "../../metal/anthrax/anthrax.html",
+        "megadeath": "../../metal/megadeath/megadeath.html",
+        "pantera": "../../metal/pantera/pantera.html",
+        "blacksabbath": "../../metal/blackSabbath/blackSabbath.html",
+        "ironmaiden": "../../metal/ironMaiden/ironMaiden.html",
+        "judaspriest": "../../metal/judasPriest/judasPriest.html",
+        "ozzyosbourne": "../../metal/ozzy/ozzy.html",
+        "motorhead": "../../metal/motorhead/motorhead.html",
+	
+        "bijelodugme": "../../yugo/dugme/dugme.html",
+        "ribljacorba": "../../yugo/čorba/čorba.html",
+        "parnivaljak": "../../yugo/parniValjak/parniValjak.html",
+        "crvenajabuka": "../../yugo/jabuka/jabuka.html",
+        "divljejagode": "../../yugo/jagode/jagode.html",
+        "prljavokazaliste": "../../yugo/prljavoKazalište/prljavoKazalište.html",
+        "plaviorkestar": "../../yugo/plaviOrkestar/plaviOrkestar.html",
+        "zabranjenopusenje": "../../yugo/zabranjenoPušenje/zabranjenoPušenje.html",
+        "djordjebalasevic": "../../yugo/đole/đole.html",
+        "bajagaiinstruktori": "../../yugo/bajaga/bajaga.html"
+    };
+
+    if (pages[query]) {
+        window.location.href = pages[query];
+    } else {
+        alert("Page not found");
+    }
+}
+</script>
+
+
+
+	
+</html>
